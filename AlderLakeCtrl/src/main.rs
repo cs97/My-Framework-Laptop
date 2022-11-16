@@ -121,14 +121,14 @@ fn main() {
 
 	let cores = core_count();
 
-	p = cores;
+	//p = cores;
 
   // 1220P
   if cores == 12 {
     p = 4;
     e = 8;
   }
-  
+
   // 1240P & 1260P
   if cores == 16 {
     p = 8;
