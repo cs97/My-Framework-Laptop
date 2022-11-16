@@ -1,0 +1,152 @@
+
+use std::fs;
+use std::fs::File;
+use std::io::Write;
+use std::path::Path;
+
+
+fn set_min_mhz(c: usize, mhz: usize){
+  let path: String = format!("{}{}{}", "/sys/devices/system/cpu/cpu", c, "/cpufreq/scaling_min_freq");
+  let mut f = File::create(path).unwrap();
+  let value: String = format!("{}000", mhz);
+  f.write_all(value.as_bytes()).unwrap();
+}
+
+fn set_max_mhz(c: usize, mhz: usize){
+  let path: String = format!("{}{}{}", "/sys/devices/system/cpu/cpu", c, "/cpufreq/scaling_max_freq");
+  let mut f = File::create(path).unwrap();
+  let value: String = format!("{}000", mhz);
+  f.write_all(value.as_bytes()).unwrap();
+}
+
+fn read_mhz(s: String) -> String {
+  let mut data = fs::read_to_string(s).unwrap();
+  data = data[..data.len()-1].to_string();
+  return (data.parse::<usize>().unwrap()/1000).to_string()+"MHz";
+}
+
+fn core_info(core: &usize) -> String {
+  let cur = read_mhz(format!("{}{}{}", "/sys/devices/system/cpu/cpu", core, "/cpufreq/scaling_cur_freq"));
+  let min = read_mhz(format!("{}{}{}", "/sys/devices/system/cpu/cpu", core, "/cpufreq/scaling_min_freq"));
+  let max = read_mhz(format!("{}{}{}", "/sys/devices/system/cpu/cpu", core, "/cpufreq/scaling_max_freq"));
+  return format!("{} \t{}\t\t{}\t\t{}", core, cur, min, max);
+}
+
+fn cpu_info(p: usize, e: usize) -> () {
+  println!("Core\t\tcurr\t\tmin\t\tmax");
+
+  // P-Cores
+  if p > 0 {
+    println!("");
+    for x in 0..p {
+      println!("Core P{}",core_info(&x));
+    }
+  }
+  
+  // E-Cores
+  if e > 0 {
+    println!("");
+    for x in p..p+e {
+      println!("Core E{}", core_info(&x));
+    }
+  }
+}
+
+fn powersave(p: usize, e: usize) {
+  if p > 0 {
+    for x in 0..p {
+      set_min_mhz(x, 400);
+      set_max_mhz(x, 2000);
+    }
+  }
+  if e > 0 {
+    for x in p..p+e {
+      set_min_mhz(x, 400);
+      set_max_mhz(x, 1400);
+    }
+  }
+}
+
+fn balanced(p: usize, e: usize) {
+  if p > 0 {
+    for x in 0..p {
+      set_min_mhz(x, 1200);
+      set_max_mhz(x, 3000);
+    }
+  }
+  if e > 0 {
+    for x in p..p+e {
+      set_min_mhz(x, 800);
+      set_max_mhz(x, 2000);
+    }
+  }
+}
+
+fn performance(p: usize, e: usize) {
+  if p > 0 {
+    for x in 0..p {
+      set_min_mhz(x, 2000);
+      set_max_mhz(x, 4400);
+    }
+  }
+  if e > 0 {
+    for x in p..p+e {
+      set_min_mhz(x, 1200);
+      set_max_mhz(x, 3300);
+    }
+  }
+}
+
+fn core_count() -> usize {
+  let mut cores = 0;
+  loop {
+    let s = format!("/sys/devices/system/cpu/cpu{}", cores + 1);
+    if Path::new(&s).is_dir() {
+      cores += 1;
+      continue;
+    } else {
+      break;
+    };
+  };
+	cores += 1;
+	return cores;
+}
+
+
+
+fn main() {
+
+  let mut p = 0;
+  let mut e = 0;
+
+	let cores = core_count();
+
+	p = cores;
+
+  // 1240P & 1260P
+  if cores == 16 {
+    p = 8;
+		e = 8;
+  }
+
+  // 1280P
+  if cores == 20 {
+    p = 12;
+		e = 8;
+  }
+
+
+  cpu_info(p, e);
+
+
+//  set_min(core, mhz);
+//  set_max(core, mhz);
+//  powersave(p, e);
+//  balanced(p, e);
+//  performance(p, e);
+//  cpu_info();
+
+//  balanced(p, e);
+
+
+}
