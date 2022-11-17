@@ -86,9 +86,9 @@ fn performance(p: usize, e: usize) {
 }
 
 fn core_count() -> usize {
-  let mut cores = 0;
+  let mut cores = 1;
   loop {
-    let s = format!("/sys/devices/system/cpu/cpu{}", cores + 1);
+    let s = format!("/sys/devices/system/cpu/cpu{}", cores);
     if Path::new(&s).is_dir() {
       cores += 1;
       continue;
