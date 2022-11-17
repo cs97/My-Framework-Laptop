@@ -53,36 +53,36 @@ fn cpu_info(p: usize, e: usize) -> () {
 }
 
 fn powersave(p: usize, e: usize) {
-    for x in 0..p {
-      set_min_mhz(x, 400);
-      set_max_mhz(x, 2000);
-    }
-    for x in p..p+e {
-      set_min_mhz(x, 400);
-      set_max_mhz(x, 1400);
-    }
+  for x in 0..p {
+    set_min_mhz(x, 400);
+    set_max_mhz(x, 2000);
+  }
+  for x in p..p+e {
+    set_min_mhz(x, 400);
+    set_max_mhz(x, 1400);
+  }
 }
 
 fn balanced(p: usize, e: usize) {
-    for x in 0..p {
-      set_min_mhz(x, 1200);
-      set_max_mhz(x, 3000);
-    }
-    for x in p..p+e {
-      set_min_mhz(x, 800);
-      set_max_mhz(x, 2000);
-    }
+  for x in 0..p {
+    set_min_mhz(x, 1200);
+    set_max_mhz(x, 3000);
+  }
+  for x in p..p+e {
+    set_min_mhz(x, 800);
+    set_max_mhz(x, 2000);
+  }
 }
 
 fn performance(p: usize, e: usize) {
-    for x in 0..p {
-      set_min_mhz(x, 2000);
-      set_max_mhz(x, 4400);
-    }
-    for x in p..p+e {
-      set_min_mhz(x, 1200);
-      set_max_mhz(x, 3300);
-    }
+  for x in 0..p {
+    set_min_mhz(x, 2000);
+    set_max_mhz(x, 4400);
+  }
+  for x in p..p+e {
+    set_min_mhz(x, 1200);
+    set_max_mhz(x, 3300);
+  }
 }
 
 fn core_count() -> usize {
