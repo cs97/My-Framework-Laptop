@@ -3,7 +3,7 @@ use std::fs;
 use std::fs::File;
 use std::io::Write;
 use std::path::Path;
-
+use std::env;
 
 fn set_min_mhz(c: usize, mhz: usize){
   let path: String = format!("{}{}{}", "/sys/devices/system/cpu/cpu", c, "/cpufreq/scaling_min_freq");
@@ -106,7 +106,7 @@ fn switch_case(s: String, p:usize, e: usize) -> () {
     "balanced" => balanced(p, e),
     "performance" => performance(p, e),
     "info" => cpu_info(p, e),
-    _ =println!("ERROR"),
+    _ =>println!("ERROR"),
   }
 }
 
@@ -149,7 +149,7 @@ fn main() {
 
   let args: Vec<String> = env::args().collect();
   if args.len() < 3 {
-    print_usage(&args[0]);
+    println!("...");
     return Ok(());
   }
   let arg = &args[1].as_str();
