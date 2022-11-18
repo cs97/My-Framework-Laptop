@@ -100,7 +100,7 @@ fn core_count() -> usize {
 	return cores;
 }
 
-fn switch_case(s: String, p:usize, e: usize) -> () {
+fn switch_case(s: &str, p:usize, e: usize) -> () {
   match s {
     "powersave" => powersave(p, e),
     "balanced" => balanced(p, e),
