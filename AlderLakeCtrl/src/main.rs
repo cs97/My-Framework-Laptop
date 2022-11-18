@@ -148,7 +148,7 @@ fn main() {
 
 
   let args: Vec<String> = env::args().collect();
-  if args.len() < 1 {
+  if args.len() < 2 {
     print_usage();
   }
   let arg = &args[1].as_str();
