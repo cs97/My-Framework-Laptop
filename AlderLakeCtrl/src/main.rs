@@ -100,6 +100,14 @@ fn core_count() -> usize {
 	return cores;
 }
 
+fn print_usage(prog_name: &str) -> () {
+	println!("usage:");
+	println!("\tAlderLakeCtrl/ {}", "powersave");
+	println!("\tAlderLakeCtrl/ {}", "balanced");
+  println!("\tAlderLakeCtrl/ {}", "performance");
+
+}
+
 fn switch_case(s: &str, p:usize, e: usize) -> () {
   match s {
     "powersave" => powersave(p, e),
