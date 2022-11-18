@@ -120,9 +120,9 @@ fn main() {
   let mut p = 0;
   let mut e = 0;
 
-	let cores = core_count();
+  let cores = core_count();
 
-	//p = cores;
+  //p = cores;
 
   // 1220P
   if cores == 12 {
