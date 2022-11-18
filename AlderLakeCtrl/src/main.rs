@@ -100,12 +100,11 @@ fn core_count() -> usize {
 	return cores;
 }
 
-fn print_usage(prog_name: &str) -> () {
+fn print_usage() -> () {
 	println!("usage:");
 	println!("\tAlderLakeCtrl/ {}", "powersave");
 	println!("\tAlderLakeCtrl/ {}", "balanced");
   println!("\tAlderLakeCtrl/ {}", "performance");
-
 }
 
 fn switch_case(s: &str, p:usize, e: usize) -> () {
@@ -114,7 +113,7 @@ fn switch_case(s: &str, p:usize, e: usize) -> () {
     "balanced" => balanced(p, e),
     "performance" => performance(p, e),
     "info" => cpu_info(p, e),
-    _ => println!("ERROR"),
+    _ => print_usage(),
   }
 }
 
