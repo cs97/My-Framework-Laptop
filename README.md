@@ -1,6 +1,6 @@
 # My-Framework-Laptop
 
-### freq ctrl Alder Lake-P
+### Alder Lake-P Ctrl
 * git clone https://github.com/cs97/My-Framework-Laptop
 * cd AlderLakeCtrl
 * cargo build --release
