@@ -100,6 +100,17 @@ fn core_count() -> usize {
 	return cores;
 }
 
+fn switch(s: String, p:usize, e: usize) -> () {
+  match s {
+    "powersave" => powersave(p, e),
+    "balanced" => balanced(p, e),
+    "performance" => performance(p, e),
+    "info" => cpu_info(p, e),
+    _ =println!("ERROR"),
+  }
+}
+
+
 
 
 fn main() {
@@ -130,17 +141,11 @@ fn main() {
   }
 
 
-  cpu_info(p, e);
 
 
 //  set_min(core, mhz);
 //  set_max(core, mhz);
-//  powersave(p, e);
-//  balanced(p, e);
-//  performance(p, e);
-//  cpu_info();
 
-//  balanced(p, e);
 
 
 }
