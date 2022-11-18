@@ -102,9 +102,7 @@ fn core_count() -> usize {
 
 fn print_usage() -> () {
 	println!("usage:");
-	println!("\tAlderLakeCtrl/ {}", "powersave");
-	println!("\tAlderLakeCtrl/ {}", "balanced");
-  println!("\tAlderLakeCtrl/ {}", "performance");
+	println!("\tAlderLakeCtrl {}", "powersave|balanced|performance|info");
 }
 
 fn switch_case(s: &str, p:usize, e: usize) -> () {
