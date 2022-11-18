@@ -115,10 +115,6 @@ fn switch_case(s: &str, p:usize, e: usize) -> () {
   }
 }
 
-
-
-
-
 fn main() {
 
   let mut p = 0;
@@ -146,7 +142,6 @@ fn main() {
 		e = 8;
   }
 
-
   let args: Vec<String> = env::args().collect();
   if args.len() < 2 {
     print_usage();
@@ -155,5 +150,3 @@ fn main() {
     switch_case(arg, p, e);
   }
 }
-
-
