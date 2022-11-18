@@ -148,7 +148,7 @@ fn main() {
 //  set_max(core, mhz);
 
   let args: Vec<String> = env::args().collect();
-  if args.len() < 3 {
+  if args.len() < 2 {
     println!("...");
     return Ok(());
   }
