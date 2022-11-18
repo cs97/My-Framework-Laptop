@@ -100,7 +100,7 @@ fn core_count() -> usize {
 	return cores;
 }
 
-fn switch(s: String, p:usize, e: usize) -> () {
+fn switch_case(s: String, p:usize, e: usize) -> () {
   match s {
     "powersave" => powersave(p, e),
     "balanced" => balanced(p, e),
@@ -109,6 +109,7 @@ fn switch(s: String, p:usize, e: usize) -> () {
     _ =println!("ERROR"),
   }
 }
+
 
 
 
@@ -146,6 +147,12 @@ fn main() {
 //  set_min(core, mhz);
 //  set_max(core, mhz);
 
-
+  let args: Vec<String> = env::args().collect();
+  if args.len() < 3 {
+    print_usage(&args[0]);
+    return Ok(());
+  }
+  let arg = &args[1].as_str();
+  switch_case(arg, p, e);
 
 }
