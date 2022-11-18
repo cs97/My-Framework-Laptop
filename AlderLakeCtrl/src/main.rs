@@ -77,11 +77,11 @@ fn balanced(p: usize, e: usize) {
 fn performance(p: usize, e: usize) {
   for x in 0..p {
     set_min_mhz(x, 2000);
-    set_max_mhz(x, 4400);
+    set_max_mhz(x, 9999);
   }
   for x in p..p+e {
     set_min_mhz(x, 1200);
-    set_max_mhz(x, 3300);
+    set_max_mhz(x, 9999);
   }
 }
 
