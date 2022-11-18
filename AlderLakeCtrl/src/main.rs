@@ -102,7 +102,7 @@ fn core_count() -> usize {
 
 fn print_usage() -> () {
 	println!("usage:");
-	println!("\tAlderLakeCtrl {}", "powersave|balanced|performance|info");
+	println!("\tAlderLakeCtrl {}", "powersave|balanced|performance|info\n");
 }
 
 fn switch_case(s: &str, p:usize, e: usize) -> () {
@@ -148,8 +148,8 @@ fn main() {
 
 
   let args: Vec<String> = env::args().collect();
-  if args.len() < 2 {
-    println!("...");
+  if args.len() < 1 {
+    print_usage();
   }
   let arg = &args[1].as_str();
   switch_case(arg, p, e);
