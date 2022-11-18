@@ -106,7 +106,7 @@ fn switch_case(s: &str, p:usize, e: usize) -> () {
     "balanced" => balanced(p, e),
     "performance" => performance(p, e),
     "info" => cpu_info(p, e),
-    _ =>println!("ERROR"),
+    _ => println!("ERROR"),
   }
 }
 
@@ -142,11 +142,6 @@ fn main() {
   }
 
 
-
-
-//  set_min(core, mhz);
-//  set_max(core, mhz);
-
   let args: Vec<String> = env::args().collect();
   if args.len() < 2 {
     println!("...");
@@ -155,3 +150,5 @@ fn main() {
   switch_case(arg, p, e);
 
 }
+
+
