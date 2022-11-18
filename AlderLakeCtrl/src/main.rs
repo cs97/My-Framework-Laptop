@@ -150,10 +150,10 @@ fn main() {
   let args: Vec<String> = env::args().collect();
   if args.len() < 2 {
     print_usage();
+  } else {
+    let arg = &args[1].as_str();
+    switch_case(arg, p, e);
   }
-  let arg = &args[1].as_str();
-  switch_case(arg, p, e);
-
 }
 
 
