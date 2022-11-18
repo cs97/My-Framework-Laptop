@@ -55,7 +55,7 @@ fn cpu_info(p: usize, e: usize) -> () {
 fn powersave(p: usize, e: usize) {
   for x in 0..p {
     set_min_mhz(x, 400);
-    set_max_mhz(x, 2000);
+    set_max_mhz(x, 1400);
   }
   for x in p..p+e {
     set_min_mhz(x, 400);
