@@ -19,8 +19,8 @@ ExecStart=/usr/bin/AlderLakeCtrl auto
 [Install]
 WantedBy=multi-user.target
 ```
-systemctl start AlderLakeCtrl
-systemctl enable AlderLakeCtrl
+* systemctl start AlderLakeCtrl
+* systemctl enable AlderLakeCtrl
 
 ### sway config
 * cp My-Framework-Laptop/.config/sway/config .config/sway/config
