@@ -10,13 +10,12 @@
 nano /etc/systemd/system/AlderLakeCtrl.service
 ```
 [Unit]
-Description=PowerMode
+Description=AlderLakeCtrl
 
 [Service]
 Type=oneshot
 
-ExecStart=/bin/sh -c "/usr/bin/powermode balanced"
-ExecStop=/bin/sh -c "/usr/bin/powermode powersave"
+ExecStart="/usr/bin/AlderLakeCtrl auto"
 RemainAfterExit=yes
 
 [Install]
