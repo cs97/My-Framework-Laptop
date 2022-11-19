@@ -7,5 +7,21 @@
 * cargo build --release
 * cp target/release/AlderLakeCtrl /usr/bin/AlderLakeCtrl
 
+nano /etc/systemd/system/AlderLakeCtrl.service
+```
+[Unit]
+Description=PowerMode
+
+[Service]
+Type=oneshot
+
+ExecStart=/bin/sh -c "/usr/bin/powermode balanced"
+ExecStop=/bin/sh -c "/usr/bin/powermode powersave"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+```
+
 ### sway config
 * cp My-Framework-Laptop/.config/sway/config .config/sway/config
