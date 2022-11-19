@@ -4,6 +4,7 @@ use std::fs::File;
 use std::io::Write;
 use std::path::Path;
 use std::env;
+use std::{thread, time::Duration};
 
 fn set_min_mhz(c: usize, mhz: usize){
   let path: String = format!("{}{}{}", "/sys/devices/system/cpu/cpu", c, "/cpufreq/scaling_min_freq");
@@ -85,6 +86,19 @@ fn performance(p: usize, e: usize) {
   }
 }
 
+fn auto_mode(p: usize, e: usize) -> () {
+	loop {
+		thread::sleep(Duration::from_millis(400));
+		let mut status = fs::read_to_string("/sys/class/power_supply/BAT1/status").unwrap();
+		status = status[..8].to_string();
+		if status == "Charging"{
+			balanced(p, e);
+		} else {
+			powersave(p, e);
+		}
+	}
+}
+
 fn core_count() -> usize {
   let mut cores = 1;
   loop {
@@ -102,7 +116,7 @@ fn core_count() -> usize {
 
 fn print_usage() -> () {
 	println!("usage:");
-	println!("\tAlderLakeCtrl {}", "powersave|balanced|performance|info\n");
+	println!("\tAlderLakeCtrl {}", "powersave|balanced|performance|info|auto\n");
 }
 
 fn switch_case(s: &str, p:usize, e: usize) -> () {
@@ -111,6 +125,7 @@ fn switch_case(s: &str, p:usize, e: usize) -> () {
     "balanced" => balanced(p, e),
     "performance" => performance(p, e),
     "info" => cpu_info(p, e),
+    "auto" => auto_mode(p, e),
     _ => print_usage(),
   }
 }
