@@ -1,5 +1,8 @@
 # My-Framework-Laptop
 
+### alacritty
+emerge --ask x11-terms/alacritty
+
 ### sway config
 * mv .config/sway/config .config/sway/config.old
 * cp My-Framework-Laptop/.config/sway/config .config/sway/config
