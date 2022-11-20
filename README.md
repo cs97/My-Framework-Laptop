@@ -22,4 +22,14 @@ WantedBy=multi-user.target
 * systemctl enable AlderLakeCtrl
 
 ### sway config
+* mv .config/sway/config .config/sway/config.old
 * cp My-Framework-Laptop/.config/sway/config .config/sway/config
+
+### sway status
+* git clone https://github.com/cs97/rusty-sway-status
+* cd rusty-sway-status
+* cargo build --release
+* cp target/release/status /usr/bin/status
+
+
+
