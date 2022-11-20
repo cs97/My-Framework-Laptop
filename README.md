@@ -12,7 +12,7 @@
 
 ### .bashrc
 * mv .bashrc .bashrc.old
-* cp cp My-Framework-Laptop/.bashrc .bashrc
+* cp My-Framework-Laptop/.bashrc .bashrc
 
 ### Alder Lake-P Ctrl
 * git clone https://github.com/cs97/AlderLakeCtrl
