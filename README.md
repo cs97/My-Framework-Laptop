@@ -1,9 +1,8 @@
 # My-Framework-Laptop
 
-* git clone https://github.com/cs97/My-Framework-Laptop
-
 ### Alder Lake-P Ctrl
-* cd My-Framework-Laptop/AlderLakeCtrl
+* git clone https://github.com/cs97/AlderLakeCtrl
+* cd AlderLakeCtrl
 * cargo build --release
 * cp target/release/AlderLakeCtrl /usr/bin/AlderLakeCtrl
 
