@@ -23,7 +23,7 @@ emerge --ask x11-terms/alacritty
 * cargo build --release
 * cp target/release/AlderLakeCtrl /usr/bin/AlderLakeCtrl
 
-nano /etc/systemd/system/AlderLakeCtrl.service
+/etc/systemd/system/AlderLakeCtrl.service
 ```
 [Unit]
 Description=AlderLakeCtrl
