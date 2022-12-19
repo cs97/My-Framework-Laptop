@@ -31,6 +31,7 @@ Description=AlderLakeCtrl
 [Service]
 Type=simple
 ExecStart=/usr/bin/AlderLakeCtrl auto
+ExecStop=/usr/bin/AlderLakeCtrl performance
 
 [Install]
 WantedBy=multi-user.target
