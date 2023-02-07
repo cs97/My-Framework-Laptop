@@ -1,0 +1,32 @@
+# Copyright 1999-2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+#
+# To populate all changes in this file you need to regenerate your
+# grub configuration file afterwards:
+#     'grub-mkconfig -o /boot/grub/grub.cfg'
+#
+# See the grub info page for documentation on possible variables and
+# their associated values.
+
+GRUB_DISTRIBUTOR="Gentoo"
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash module_blacklist=hid_sensor_hub"
+
+#GRUB_TERMINAL=console
+
+#GRUB_GFXMODE=#GRUB_GFXMODE=1920x1080x32
+
+#GRUB_GFXPAYLOAD_LINUX=
+
+#GRUB_THEME="/boot/grub/themes/starfield/theme.txt"
+
+#GRUB_BACKGROUND="/boot/grub/mybackground.png"
+
+#GRUB_DISABLE_LINUX_UUID=true
+
+#GRUB_DISABLE_RECOVERY=true
+
+#GRUB_DISABLE_SUBMENU=y
+
+#GRUB_INIT_TUNE="60 800 1"
+
