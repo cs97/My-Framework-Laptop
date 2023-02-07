@@ -59,8 +59,8 @@ exec --no-startup-id dbus-update-activation-environment --all
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
     # dev-libs/light
-    bindsym XF86MonBrightnessDown exec light -U 2
-    bindsym XF86MonBrightnessUp exec light -A 4
+    bindsym XF86MonBrightnessDown exec light -U 10
+    bindsym XF86MonBrightnessUp exec light -A 10
     
     #volume
     #bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
