@@ -39,6 +39,23 @@ WantedBy=multi-user.target
 * systemctl start AlderLakeCtrl
 * systemctl enable AlderLakeCtrl
 
+### AMD GPU OC UV...
+/etc/default/grub
+```
+GRUB_CMDLINE_LINUX_DEFAULT="... amdgpu.ppfeaturemask=0xffffffff"
+```
+### fixes
+for kernel 6.4.x on Intel 12th gen cpu
+/etc/default/grub
+```
+GRUB_CMDLINE_LINUX_DEFAULT="...ibt=off tpm_tis.interrupts=0..."
+```
+touchpad
+/etc/default/grub
+```
+GRUB_CMDLINE_LINUX_DEFAULT="module_blacklist=hid_sensor_hub"
+```
+
 
 
 
