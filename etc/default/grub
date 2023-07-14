@@ -10,7 +10,8 @@
 
 GRUB_DISTRIBUTOR="Gentoo"
 
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash module_blacklist=hid_sensor_hub"
+#GRUB_CMDLINE_LINUX_DEFAULT="quiet splash module_blacklist=hid_sensor_hub"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash module_blacklist=hid_sensor_hub ibt=off tpm_tis.interrupts=0 amdgpu.ppfeaturemask=0xffffffff"
 
 #GRUB_TERMINAL=console
 
