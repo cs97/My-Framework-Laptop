@@ -78,6 +78,10 @@ exec --no-startup-id dbus-update-activation-environment --all
     for_window [app_id="firefox"] border pixel 2
 
     for_window [app_id="mpv"] floating enable, resize set 1800 1200, border pixel 2
+
+    # Stream
+    #bindsym $mod+k exec mpv ~/memes/monkaS-3x.webp
+
 #
 # Moving around:
 #
