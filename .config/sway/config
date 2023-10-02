@@ -22,6 +22,22 @@ output * scale 1.00
 #   swaymsg -t get_outputs
 output eDP-1 mode 2256x1504@59.999Hz
 
+output DP-4 pos 2256 0
+#output DP-4 mode 2560x1440@59.951Hz
+output DP-4 mode  3840x2160@30.000Hz
+
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output DP-4
+workspace 6 output DP-4
+workspace 7 output DP-4
+workspace 8 output DP-4
+workspace 9 output DP-4
+
+exec ligth -S 50
+
 exec gentoo-pipewire-launcher
 exec --no-startup-id /usr/libexec/xdg-desktop-portal -r
 exec --no-startup-id dbus-update-activation-environment --all
@@ -44,7 +60,7 @@ exec --no-startup-id dbus-update-activation-environment --all
     for_window [app_id="thunar"] floating enable, resize set 900 600, border pixel 2
     
     # Start your launcher
-    bindsym $mod+d exec $menu
+    #bindsym $mod+d exec $menu
 
     # mouse button for dragging.
     floating_modifier $mod normal
@@ -53,7 +69,7 @@ exec --no-startup-id dbus-update-activation-environment --all
     bindsym $mod+Shift+c reload
 
     # swaylock
-    bindsym $mod+Shift+s exec light -S 5, exec swaylock -i /home/rax/gentoo.png && exec light -S 60
+    bindsym $mod+Shift+s exec light -S 5, exec swaylock -i /home/rax/gentoo.png && exec light -S 50
     
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -78,9 +94,6 @@ exec --no-startup-id dbus-update-activation-environment --all
     for_window [app_id="firefox"] border pixel 2
 
     for_window [app_id="mpv"] floating enable, resize set 1800 1200, border pixel 2
-
-    # Stream
-    #bindsym $mod+k exec mpv ~/memes/monkaS-3x.webp
 
 #
 # Moving around:
