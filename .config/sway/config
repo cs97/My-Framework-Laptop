@@ -86,8 +86,8 @@ exec --no-startup-id dbus-update-activation-environment --all
     bindsym XF86AudioRaiseVolume exec amixer -D pipewire sset Master 5%+
     bindsym XF86AudioLowerVolume exec amixer -D pipewire sset Master 5%-
 
+    bindsym $mod+v exec wpctl set-mute 44 toggle
 
-    
     # Firefox
     bindsym $mod+f exec firefox
     #for_window [app_id="firefox"] default_border pixel 2
@@ -152,8 +152,8 @@ exec --no-startup-id dbus-update-activation-environment --all
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    #bindsym $mod+b splith
+    #bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
