@@ -86,7 +86,8 @@ exec --no-startup-id dbus-update-activation-environment --all
     bindsym XF86AudioRaiseVolume exec amixer -D pipewire sset Master 5%+
     bindsym XF86AudioLowerVolume exec amixer -D pipewire sset Master 5%-
 
-    bindsym $mod+v exec wpctl set-mute 44 toggle
+    bindsym $mod+v exec exec amixer set Capture toggle
+    #bindsym $mod+v exec wpctl set-mute 44 toggle
 
     # Firefox
     bindsym $mod+f exec firefox
